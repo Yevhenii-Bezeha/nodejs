@@ -25,6 +25,9 @@ const actionInvoke = async ({
       const product = await productsAction.getById(id);
       console.log(product);
       break;
+    case "add":
+      await productsAction.add(name, phone, email);
+      break;
     case "update":
       const updatedProduct = await productsAction.update(
         id,
