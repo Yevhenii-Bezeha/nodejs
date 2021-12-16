@@ -2,14 +2,12 @@
   "name": "nodejs-hw",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
-  "compilerOptions": {
-    "module": "CommonJS"
-  },
+  "main": "dist/bin/index.js",
+  "type": "commonjs",
+  "compilerOptions": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node dist/index.js",
-    "dev": "nodemon --exec npx ts-node ./src/index.ts"
+    "start": "tsc -p . -watch",
+    "dev": "nodemon dist/bin/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,14 +20,27 @@
   },
   "homepage": "https://github.com/Yevhenii-Bezeha/nodejs-hw#readme",
   "dependencies": {
-    "@types/node": "^16.11.12",
-    "commander": "^8.3.0",
-    "tslint": "^6.1.3",
-    "typescript": "^4.5.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "joi": "^17.5.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "normalize.css": "^8.0.1",
+    "shortid": "^2.2.16",
+    "ts-node-dev": "^1.1.8",
+    "tslib": "^2.3.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15",
-    "ts-node": "^10.4.0"
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jasmine": "~3.10.0",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^12.20.37",
+    "@types/shortid": "^0.0.29",
+    "@types/uuid": "^8.3.3",
+    "eslint": "^8.2.0",
+    "typescript": "~4.4.3"
   }
 }
