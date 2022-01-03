@@ -1,8 +1,13 @@
 const service = require("../services");
 
 const get = async (req, res, next) => {
+  const { page, perPage } = req.query;
+
   try {
-    const results = await service.getAllContacts();
+    const results =
+      req.query.favorite === "true"
+        ? await service.filteredContacts(page, perPage)
+        : await service.getAllContacts(page, perPage);
     res.json({
       status: "success",
       code: 200,
