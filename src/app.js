@@ -3,6 +3,7 @@ const logger = require("morgan");
 const cors = require("cors");
 
 const contactsRouter = require("./routes/api/contacts.js");
+const authRouter = require("./routes/api/auth.js");
 
 const app = express();
 
@@ -11,8 +12,10 @@ const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
+require("./config/config-passport.js");
 
 app.use("/api/contacts", contactsRouter);
+app.use("/users", authRouter);
 
 app.use((_, res, __) => {
   res.status(404).json({
